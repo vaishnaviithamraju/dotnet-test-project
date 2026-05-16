@@ -1,0 +1,3 @@
+# Daily Coding Practice Logs
+
+16/05/2026 - Learned how to configure VSCode to run .NET applications with breakpoints for debugging.

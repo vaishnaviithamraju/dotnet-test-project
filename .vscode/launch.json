@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch TestAndRunDotNet (http)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/TestAndRunDotNet/bin/Debug/net10.0/TestAndRunDotNet.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/TestAndRunDotNet",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "launchSettingsProfile": "http",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            }
+        },
+        {
+            "name": "Launch TestAndRunDotNet (https)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/TestAndRunDotNet/bin/Debug/net10.0/TestAndRunDotNet.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/TestAndRunDotNet",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "launchSettingsProfile": "https",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
