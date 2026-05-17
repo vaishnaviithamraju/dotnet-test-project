@@ -1,0 +1,18 @@
+using Files;
+
+namespace QueriedData;
+
+public class IrisQueries
+{
+    List<Iris> _allData;
+    FileReader fileReader = new FileReader();
+    //practice writing singleton with this constructor.
+    public IrisQueries()
+    {
+        _allData = fileReader.GetIrises();
+    }
+    public List<Iris> GetIrisesBySpeciesName(string speciesName)
+    {
+       return _allData.Where(spec => spec.Species == speciesName);
+    }
+}
