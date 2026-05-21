@@ -1,3 +1,7 @@
 # Daily Coding Practice Logs
 
 16/05/2026 - Learned how to configure VSCode to run .NET applications with breakpoints for debugging.
+17/05/2026 - Added Basic Queries Over the Iris Data.
+18/05/2026 - Added Grouping Queries
+
+21/05/2026 - 
