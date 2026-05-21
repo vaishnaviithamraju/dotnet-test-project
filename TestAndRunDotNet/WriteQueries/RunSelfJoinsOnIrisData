@@ -18,13 +18,17 @@ public class IrisQueries
     }
     public List<Iris> GetIrisesBySpeciesName(string speciesName)
     {
-       return _allData.Where(spec => spec.Species == speciesName);
+       return _allData.Where(spec => spec.Species == speciesName).ToList();
     }
 
-    public List<(int,string)> GetCountBySpecies()
-    {
-        _allData.GroupBy(spec=>spec.Species).Select(x=>new {
-            SpeciesName = x.Key,
-            Count = x.Count()}).ToList();
+    public List<(string,double,double)> GetStatsPerSpecies(){
+       return _allData.GroupBy(spec=>spec.Species).Select(x=>(
+            SpeciesName : x.Key,
+            Average : x.Average(iris=>iris.SepalLength),
+            // Count = x.Count(),
+             Min : x.Min(iris => iris.PetalLength)
+            // Max = x.Max()
+       )).ToList();
     }
+    
 }
