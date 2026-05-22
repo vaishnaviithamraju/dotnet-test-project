@@ -7,30 +7,31 @@ using System.Text.Json.Serialization;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-namespace Files;
-
-public class FileReader
+namespace Files
 {
-    public List<Iris> GetIrises()
+    public class FileReader
     {
-        var path = "../iris.csv";
-
-        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+        public List<Iris> GetIrises()
         {
-            PrepareHeaderForMatch = args => args.Header.Replace("_", "").ToLowerInvariant(),
-        };
+            var path = "../iris.csv";
 
-        using var reader = new StreamReader(path);
-        using var csv = new CsvReader(reader, config);
-        return csv.GetRecords<Iris>().ToList();
-    }
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                PrepareHeaderForMatch = args => args.Header.Replace("_", "").ToLowerInvariant(),
+            };
 
-    public  Task<List<Country>> GetCountries()
-    {
-        var httpClient = new HttpClient();
-        var data =  httpClient.GetFromJsonAsync<List<Country>>("https://restcountries.com/v3.1/all?fields=name,capital,currencies");
-        return data;
-    }
+            using var reader = new StreamReader(path);
+            using var csv = new CsvReader(reader, config);
+            return csv.GetRecords<Iris>().ToList();
+        }
+
+        public  Task<List<Country>> GetCountries()
+        {
+            var httpClient = new HttpClient();
+            var data =  httpClient.GetFromJsonAsync<List<Country>>("https://restcountries.com/v3.1/all?fields=name,capital,currencies");
+            return data;
+        }
 
     
+    }
 }

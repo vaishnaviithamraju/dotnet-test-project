@@ -14,12 +14,11 @@ var irisQuery = new IrisQueries();
 
 var getSpeciesStats = irisQuery.GetStatsPerSpecies();
 
-
 var top10Countries = (await fileReader.GetCountries()).Take(10).ToList();
 
-var countryNames = string.Join("\n",top10Countries.Select(country => country.Name.Common));
+//var countryNames = string.Join("\n",top10Countries.Select(country => country.Name.Common));
 
-app.MapGet("/", () => $"{JsonSerializer.Serialize(getSpeciesStats)}");
+app.MapGet("/", () => Results.Json(getSpeciesStats));
 
 app.Run();
 
